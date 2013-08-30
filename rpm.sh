@@ -38,23 +38,13 @@ echo "IP address = $IP_ADDRESS"
 echo "---------------------------"
 echo ""
 
-echo "Please enter the CDN domain(CDN域名):"
-read -p "(Default password: vip.cache.so):" DOMAIN
+echo "Please enter the CDN domain:"
+read -p "(Default password: cache.so):" DOMAIN
 if [ -z $DOMAIN ]; then
-	DOMAIN="vip.cache.so"
+	DOMAIN="cache.so"
 fi
 echo "---------------------------"
 echo "CDN domain = $DOMAIN"
-echo "---------------------------"
-echo ""
-
-echo "Please enter the CDN original domain(源站域名):"
-read -p "(Default password: cache.so):" ORIGIN_DOMAIN
-if [ -z $ORIGIN_DOMAIN ]; then
-	ORIGIN_DOMAIN="cache.so"
-fi
-echo "---------------------------"
-echo "CDN original domain = $ORIGIN_DOMAIN"
 echo "---------------------------"
 echo ""
 
@@ -232,11 +222,10 @@ chmod 644 /usr/local/nginx/conf/vhosts/cdn.conf
 cp conf/proxy_cache.inc /usr/local/nginx/conf/proxy_cache.inc
 chmod 644 /usr/local/nginx/conf/proxy_cache.inc
 
-sed -i 's,ORIGIN_DOMAIN,'$ORIGIN_DOMAIN',g' /usr/local/nginx/conf/vhosts/cdn.conf
 sed -i 's,DOMAIN,'$DOMAIN',g' /usr/local/nginx/conf/vhosts/cdn.conf
 
 cat >>/etc/hosts<<-EOF
-$ORIGIN_IP $ORIGIN_DOMAIN
+$ORIGIN_IP $DOMAIN
 EOF
 
 cp conf/init.d.nginx /etc/init.d/nginx
@@ -263,7 +252,6 @@ echo "easyCDN install completed!"
 echo ""
 echo "Server ip address: $IP_ADDRESS"
 echo "CDN domain: $DOMAIN"
-echo "CDN original domain: $ORIGIN_DOMAIN"
 echo "CDN original IP: $ORIGIN_IP"
 echo ""
 echo "tengine config file at: /usr/local/nginx/conf/nginx.conf"
