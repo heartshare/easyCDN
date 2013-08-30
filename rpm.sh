@@ -146,6 +146,9 @@ fs.file-max=65535
 EOF
 sysctl -p
 
+export LIBS=
+export CFLAGS=
+
 echo "---------- Dependent Packages ----------"
 
 yum -y install make autoconf autoconf213 gcc gcc-c++ libtool
