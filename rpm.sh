@@ -146,15 +146,11 @@ fs.file-max=65535
 EOF
 sysctl -p
 
-export LIBS=
-export CFLAGS=
-
 echo "---------- Dependent Packages ----------"
 
 yum -y install make autoconf autoconf213 gcc gcc-c++ libtool
-yum -y install wget patch unzip tar
+yum -y install wget tar curl curl-devel
 yum -y install openssl openssl-devel
-yum -y install curl curl-devel
 
 echo "===================== Tengine Install ===================="
 
@@ -221,7 +217,7 @@ sed -i 's,IP_ADDRESS,'$IP_ADDRESS',g' /usr/local/nginx/conf/nginx.conf
 sed -i 's,ORIGIN_DOMAIN,'$ORIGIN_DOMAIN',g' /usr/local/nginx/conf/nginx.conf
 
 cat >>/etc/hosts<<-EOF
-$ORIGIN_IP  $ORIGIN_DOMAIN
+$ORIGIN_IP $ORIGIN_DOMAIN
 EOF
 
 cp conf/proxy_cache.inc /usr/local/nginx/conf/proxy_cache.inc
