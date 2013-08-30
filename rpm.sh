@@ -10,8 +10,8 @@ fi
 CDN_PATH=`pwd`
 if [ `echo $CDN_PATH | awk -F/ '{print $NF}'` != "easyCDN" ]; then
 	clear && echo "Please enter easyCDN script path:"
-	read -p "(Default path: ${CDN_PATH}/easyCDN):" CDN_PATH
-	[ -z "$CDN_PATH" ] && CDN_PATH=$(pwd)/easyCDN
+	read -p "(Default path: ${CDN_PATH}):" CDN_PATH
+	[ -z "$CDN_PATH" ] && CDN_PATH=$(pwd)
 	cd $CDN_PATH/
 fi
 

@@ -19,5 +19,4 @@
 > Home Page: [Blog](http://xiaosong.org/)  
 
 ## 六、TODO
-> 参数调优 
-> 配置更简单  
+> 参数调优  
