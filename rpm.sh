@@ -232,8 +232,7 @@ chmod 644 /usr/local/nginx/conf/vhosts/cdn.conf
 cp conf/proxy_cache.inc /usr/local/nginx/conf/proxy_cache.inc
 chmod 644 /usr/local/nginx/conf/proxy_cache.inc
 
-sed -i 's,IP_ADDRESS,'$IP_ADDRESS',g' /usr/local/nginx/conf/nginx.conf
-sed -i 's,ORIGIN_DOMAIN,'$ORIGIN_DOMAIN',g' /usr/local/nginx/conf/proxy_cache.inc
+sed -i 's,ORIGIN_DOMAIN,'$ORIGIN_DOMAIN',g' /usr/local/nginx/conf/vhosts/cdn.conf
 sed -i 's,DOMAIN,'$DOMAIN',g' /usr/local/nginx/conf/vhosts/cdn.conf
 
 cat >>/etc/hosts<<-EOF

@@ -8,6 +8,3 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 proxy_cache nginx;
 proxy_cache_key "$scheme://$host$request_uri";
 proxy_cache_valid 200 301 302 304 1d;
-
-proxy_pass http://ORIGIN_DOMAIN;
-add_header Cache-Status $upstream_cache_status;
