@@ -1,14 +1,3 @@
-proxy_redirect off;
-proxy_buffer_size 16k;
-proxy_buffers 8 32k;
-proxy_busy_buffers_size 64k;
-proxy_cache_path /tmp/nginx/cache levels=1:2 keys_zone=nginx:64m inactive=1d max_size=2g;
-proxy_connect_timeout 30;
-proxy_ignore_headers Set-Cookie Cache-Control Expires;
-proxy_read_timeout  60;
-proxy_send_timeout  30;
-proxy_temp_file_write_size 64k;
-
 proxy_set_header Host $host;
 proxy_set_header Accept-Encoding '';
 proxy_set_header Referer $http_referer;
