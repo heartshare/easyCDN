@@ -20,4 +20,5 @@
 > Home Page: [Blog](http://xiaosong.org/)  
 
 ## 六、TODO
-> 参数调优  
+> PURGE模块优化，支持在线purge
+> HIT rate 在线查看 

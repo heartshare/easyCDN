@@ -180,6 +180,11 @@ if [ ! -s tengine-*.tar.gz ]; then
 	wget -c "http://json.so/download/tengine-latest.tar.gz"
 fi
 
+if [ ! -s ngx_cache_purge-*.tar.gz ]; then
+	wget -c "http://labs.frickle.com/files/ngx_cache_purge-2.1.tar.gz"
+fi
+
+tar -zxf ngx_cache_purge-*.tar.gz
 tar -zxf tengine-*.tar.gz
 cd tengine-*/
 
@@ -204,7 +209,8 @@ cd tengine-*/
 --http-proxy-temp-path=/tmp/nginx/proxy \
 --http-fastcgi-temp-path=/tmp/nginx/fastcgi \
 --http-uwsgi-temp-path=/tmp/nginx/uwsgi \
---http-scgi-temp-path=/tmp/nginx/scgi
+--http-scgi-temp-path=/tmp/nginx/scgi \
+--add-module=../ngx_cache_purge-*/
 make && make install
 
 echo "---------- Tengine Config----------"
