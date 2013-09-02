@@ -213,7 +213,7 @@ cd tengine-*/
 --add-module=../ngx_cache_purge-*/
 make && make install
 
-echo "---------- Tengine Config----------"
+echo "---------- Tengine Config ----------"
 
 cd $CDN_PATH/
 mv /usr/local/nginx/conf/nginx.conf /usr/local/nginx/conf/nginx.conf.bak
@@ -230,10 +230,6 @@ chmod 644 /usr/local/nginx/conf/proxy_cache.inc
 
 sed -i 's,DOMAIN,'$DOMAIN',g' /usr/local/nginx/conf/vhosts/cdn.conf
 
-cat >>/etc/hosts<<-EOF
-$ORIGIN_IP $DOMAIN
-EOF
-
 cp conf/init.d.nginx /etc/init.d/nginx
 chmod 755 /etc/init.d/nginx
 chkconfig nginx on
@@ -249,6 +245,23 @@ fi
 /etc/rc.d/init.d/iptables save
 /etc/rc.d/init.d/iptables restart
 /etc/rc.d/init.d/httpd restart
+
+echo "===================== System Config ===================="
+
+echo "---------- add hosts ----------"
+
+cat >>/etc/hosts<<-EOF
+$ORIGIN_IP $DOMAIN
+EOF
+
+echo "---------- add crontab ----------"
+
+cd $CDN_PATH/
+cp conf/hit_rate.sh /usr/local/nginx/hit_rate.sh
+chmod 755 /usr/local/nginx/hit_rate.sh
+cat >>/var/spool/cron/root<<-EOF
+*/5 * * * * /bin/bash /usr/local/nginx/hit_rate.sh /usr/local/nginx/logs/cdn/access.log > /dev/null 2>&1
+EOF
 
 clear
 echo ""

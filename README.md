@@ -19,6 +19,5 @@
 > Weibo：[@徐岳松](https://weibo.com/tbyuesong)  
 > Home Page: [Blog](http://xiaosong.org/)  
 
-## 六、TODO
+## 四、TODO
 > PURGE模块优化，支持在线purge
-> HIT rate 在线查看 
