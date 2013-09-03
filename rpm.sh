@@ -149,7 +149,7 @@ sysctl -p
 echo "---------- Dependent Packages ----------"
 
 yum -y install make autoconf autoconf213 gcc gcc-c++ libtool
-yum -y install wget tar curl curl-devel
+yum -y install wget tar curl curl-devel bc
 yum -y install openssl openssl-devel vixie-cron crontabs
 
 echo "===================== Tengine Install ===================="
@@ -240,11 +240,10 @@ ln -s /usr/local/nginx/sbin/nginx /usr/sbin/nginx
 if [ ! -d "src/" ];then
 	mkdir -p src/
 fi
-\mv ./{*gz,*-*/,package.xml} ./src >/dev/null 2>&1
+\mv ./{*gz,*-*/} ./src >/dev/null 2>&1
 /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
 /etc/rc.d/init.d/iptables save
 /etc/rc.d/init.d/iptables restart
-/etc/rc.d/init.d/httpd restart
 
 echo "===================== System Config ===================="
 
