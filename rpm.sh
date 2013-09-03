@@ -75,7 +75,7 @@ char=`get_char`
 
 echo "---------- Network Check ----------"
 
-ping -c 1 baidu.com &>/dev/null && PING=1 || PING=0
+ping -c 1 www.google.com &>/dev/null && PING=1 || PING=0
 
 if [ -d "$CDN_PATH/src" ];then
 	\mv $CDN_PATH/src/* $CDN_PATH
