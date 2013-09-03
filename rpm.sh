@@ -150,7 +150,7 @@ echo "---------- Dependent Packages ----------"
 
 yum -y install make autoconf autoconf213 gcc gcc-c++ libtool
 yum -y install wget tar curl curl-devel
-yum -y install openssl openssl-devel
+yum -y install openssl openssl-devel vixie-cron crontabs
 
 echo "===================== Tengine Install ===================="
 
