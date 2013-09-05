@@ -39,7 +39,7 @@ echo "---------------------------"
 echo ""
 
 echo "Please enter the CDN domain:"
-read -p "(Default password: cache.so):" DOMAIN
+read -p "(Default domain: cache.so):" DOMAIN
 if [ -z $DOMAIN ]; then
 	DOMAIN="cache.so"
 fi
@@ -49,7 +49,7 @@ echo "---------------------------"
 echo ""
 
 echo "Please enter the CDN original IP address(源站IP):"
-read -p "(Default password: 42.120.60.108):" ORIGIN_IP
+read -p "(Default original IP address: 42.120.60.108):" ORIGIN_IP
 if [ -z $ORIGIN_IP ]; then
 	ORIGIN_IP="42.120.60.108"
 fi
