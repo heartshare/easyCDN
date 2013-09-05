@@ -5,13 +5,13 @@ version 0.2.5
 
 二、历史版本
 
-version 0.2.4
+v 0.2.4
 - yum 安装bc，解决缓存命中率没法计算的bug，移除不必要代码
 
-version 0.2.3
+v 0.2.3
 - yum 安装crontab，解决某些最小化系统没装crontab的问题
 
-version 0.2.2
+v 0.2.2
 - 更换网络检查地址为google.com
 
 v 0.2.1
