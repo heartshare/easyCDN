@@ -1,12 +1,12 @@
 #!/bin/bash
 # proxy_cache hit rate
 
+Time=`date "+%Y-%m-%d %H:%M:%S"`
 if [ $1x != x ]; then
     if [ -e $1 ]; then
         HIT=`cat $1 | grep HIT | wc -l`
         ALL=`cat $1 | wc -l`
         Hit_rate=`echo "scale=2;($HIT/$ALL)*100" | bc`
-        Time=`date "+%Y-%m-%d %H:%M:%S"`
         cat >/usr/local/nginx/html/hit.html<<-EOF
 <!doctype html>
 <html lang="en">
@@ -39,6 +39,10 @@ if [ $1x != x ]; then
 </body>
 </html>
 EOF
+        echo "All: $ALL"
+        echo "Hit: $HIT"
+        echo "Hit Rate: $Hit_rate%"
+        echo "Last Update: $Time"
     else
         echo "$1 not exsist!"
     fi
