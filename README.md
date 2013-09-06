@@ -20,4 +20,4 @@
 > Home Page: [Blog](http://xiaosong.org/)  
 
 ## 四、TODO
-> PURGE模块优化，支持在线purge
+> 优化参数  

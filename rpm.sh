@@ -49,9 +49,9 @@ echo "---------------------------"
 echo ""
 
 echo "Please enter the CDN original IP address(源站IP):"
-read -p "(Default original IP address: 42.120.60.108):" ORIGIN_IP
+read -p "(Default original IP address: 42.121.81.67):" ORIGIN_IP
 if [ -z $ORIGIN_IP ]; then
-	ORIGIN_IP="42.120.60.108"
+	ORIGIN_IP="42.121.81.67"
 fi
 echo "---------------------------"
 echo "CDN original IP address = $ORIGIN_IP"
